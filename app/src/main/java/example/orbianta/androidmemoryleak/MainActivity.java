@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void run_clicked(View v){
-        free_memory = String.valueOf(Runtime.getRuntime().freeMemory()/99);
+        free_memory = String.valueOf(Runtime.getRuntime().freeMemory());
         title.setText("Leaking memory... Please wait.");
         run_btn.setVisibility(View.GONE);
         log_view.append("Current free memory: "+free_memory+"\nRunning memory leak payload. Device will be crash soon.\n");
 
         for(int i=0;i<100;i++)  timer.postDelayed(new Runnable() {@Override public void run() {
-            free_memory = String.valueOf(Runtime.getRuntime().freeMemory()/99);
+            free_memory = String.valueOf(Runtime.getRuntime().freeMemory());
             log_view.append(free_memory+"\n"); //yea not works good :(
         }},500);
 
